@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'aruba'
+  gem.add_development_dependency 'aruba-doubles'
   gem.add_development_dependency 'tailor' # https://github.com/turboladen/tailor
   gem.add_development_dependency 'travis-lint'
 

@@ -1,5 +1,6 @@
 # Set up the environment for testing
 require 'aruba/cucumber'
+require 'aruba-doubles/cucumber'
 
 # Before do
 #   @dirs = ["tmp/aruba"]

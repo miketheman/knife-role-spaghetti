@@ -3,6 +3,10 @@ Feature: Graphing role dependencies works
   As a Chef
   I want to run the plugin against a roles directory
 
+Background:
+  Given I double `dot`
+  And I double `neato`
+
 Scenario: Running against a knife.rb with undefined roles directory should fail
   Given an empty file named ".chef/knife.rb"
   When I run `knife role spaghetti`
@@ -36,7 +40,7 @@ Scenario: Running against a directory with multiple roles succeeds
   )
   """
   When I successfully run `knife role spaghetti multirole.png`
-  Then a file named "multirole.png" should exist
+  Then the exit status should be 0
 
 Scenario: Running against embedded roles succeeds
   Given a file named ".chef/knife.rb" with:
@@ -69,4 +73,4 @@ Scenario: Running against embedded roles succeeds
   )
   """
   When I successfully run `knife role spaghetti embedded.png`
-  Then a file named "embedded.png" should exist
+  Then the exit status should be 0

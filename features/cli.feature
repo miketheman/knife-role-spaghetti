@@ -16,6 +16,8 @@ Background:
     "recipe[apache2]"
   )
   """
+  And I double `dot`
+  And I double `neato`
 
 Scenario Outline: Running with Help flags produces the correct result
   When I run `knife role spaghetti <HelpFlag>`
@@ -31,15 +33,15 @@ Scenario Outline: Running with Help flags produces the correct result
 
 Scenario: Running with no arguments produces the correct result
   When I successfully run `knife role spaghetti`
-  Then a file named "role-spaghetti.png" should exist
+  Then the exit status should be 0
 
 Scenario: Running with a filename succeeds
   When I successfully run `knife role spaghetti webserver.png`
-  Then a file named "webserver.png" should exist
+  Then the exit status should be 0
 
 Scenario Outline: Running with different flags succeeds
   When I successfully run `knife role spaghetti <Filename> <Flag> <Format>`
-  Then a file named <Filename> should exist
+  Then the exit status should be 0
   Examples:
     | Filename              | Flag           | Format |
     | "webserver-short.png" | -G             | png    |
@@ -49,7 +51,7 @@ Scenario Outline: Running with different flags succeeds
 
 Scenario Outline: Running with neato switch succeeds
   When I successfully run `knife role spaghetti <Filename> <Flag>`
-  Then a file named <Filename> should exist
+  Then the exit status should be 0
   Examples:
     | Filename                    | Flag          |
     | "webserver-short-neato.png" | -N            |
