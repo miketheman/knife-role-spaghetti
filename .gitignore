@@ -1,8 +1,12 @@
 *.gem
 *.rbc
 .bundle
+.chef
 .config
+.rvmrc
+.DS_Store
 coverage
+Gemfile.lock
 InstalledFiles
 lib/bundler/man
 pkg
