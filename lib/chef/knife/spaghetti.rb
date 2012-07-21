@@ -8,7 +8,7 @@ module KnifeRoleSpaghetti
       require 'graphviz'
     end
 
-    banner "knife role spaghetti FILENAME [-G FORMAT [-N] ]"
+    banner "knife role spaghetti [ OUTFILE.PNG -G FORMAT [-N] ]"
 
     option :graphformat,
       :short => "-G FORMAT",

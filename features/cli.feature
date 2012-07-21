@@ -23,7 +23,7 @@ Scenario Outline: Running with Help flags produces the correct result
   When I run `knife role spaghetti <HelpFlag>`
   Then the output should contain:
   """
-  knife role spaghetti FILENAME [-G FORMAT [-N] ]
+  knife role spaghetti [ OUTFILE.PNG -G FORMAT [-N] ]
   """
   And the exit status should be 1
   Examples:
