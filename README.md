@@ -69,9 +69,13 @@ Running through the neato renderer (with the `-N` switch) produces this image:
 
 ## Changelog
 
+### v0.0.2
+* Updated CLI banner to reflect that filename is not required, renamed for clarity
+* Improved handling cases where a role contains recipes named the same as the role
+* Added handling for roles in JSON format
+
 ### v0.0.1
 * Initial commit
-
 
 ## License
 

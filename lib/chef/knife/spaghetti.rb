@@ -23,6 +23,8 @@ module KnifeRoleSpaghetti
       :boolean => true,
       :description => "Specify to render the graph in the neato engine"
 
+    # OPTIMIZE: Add an option to display cookbooks instead of recipes?
+
     def run
 
       self.config = Chef::Config.merge!(config)
