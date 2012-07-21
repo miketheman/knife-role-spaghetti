@@ -39,6 +39,18 @@ Scenario: Running against a directory with multiple roles succeeds
     "recipe[mysql]"
   )
   """
+  And a file named "roles/base.json" with:
+  """
+  {
+    "name" : "base",
+    "description" : "Sample base json role",
+    "run_list" : [
+      "recipe[yum]",
+      "recipe[apt]",
+      "recipe[ntp]"
+    ]
+  }
+  """
   When I successfully run `knife role spaghetti multirole.png`
   Then the exit status should be 0
 

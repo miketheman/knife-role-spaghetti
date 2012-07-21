@@ -58,10 +58,19 @@ module KnifeRoleSpaghetti
         :compound => "true"
       )
 
-      # OPTIMIZE: Handle json files too
-      Dir.glob(File.join(Chef::Config.role_path, '*.rb')) do |rb_file|
+      Dir.glob(File.join(Chef::Config.role_path, '*.{rb,json}')) do |role_file|
+
         role = Chef::Role.new
-        role.from_file(rb_file)
+
+        if File.extname(role_file) == '.rb'
+          role.from_file(role_file)
+        elsif File.extname(role_file) == '.json'
+          js_file = Chef::JSONCompat.from_json(IO.read(role_file))
+          role = Chef::Role.json_create(js_file)
+        else
+          ui.error("This shouldn't happen, the file must be either rb or json")
+        end
+
         # OPTIMIZE: Handle environment run_lists
 
         g.node[:shape] = "box"
