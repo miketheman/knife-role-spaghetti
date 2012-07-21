@@ -67,7 +67,7 @@ module KnifeRoleSpaghetti
         g.node[:shape] = "box"
         g.node[:style] = "rounded"
         g.node[:color] = "red"
-        role_node = g.add_nodes(role.name)
+        role_node = g.add_nodes("#{role.name}_role", :label => role.name)
 
         # This logic is to ensure that an embedded role doesn't change color
         role.run_list.each do |rli|
