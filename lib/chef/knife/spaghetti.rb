@@ -6,7 +6,6 @@ module KnifeRoleSpaghetti
     deps do
       require 'chef/role'
       require 'graphviz'
-      require 'chef/knife/core/object_loader'
     end
 
     banner "knife role spaghetti [ OUTFILE.PNG -G FORMAT [-N] ]"
@@ -26,17 +25,13 @@ module KnifeRoleSpaghetti
 
     # OPTIMIZE: Add an option to display cookbooks instead of recipes?
 
-    def loader
-      @loader ||= Chef::Knife::Core::ObjectLoader.new(Chef::Role, ui)
-    end
-
     def run
 
       self.config = Chef::Config.merge!(config)
 
       # OPTIMIZE: Maybe instead of a flag, infer the graph format from fileext?
 
-      # Parse the configuration options, provide defaults where needed
+      # Parse the configuration options, provide defaults where needed      
       if config[:graphformat]
         output_format = config[:graphformat].to_sym
       else
@@ -51,7 +46,7 @@ module KnifeRoleSpaghetti
       end
 
       # If we can't find any roles, it's pointless to continue.
-      if loader.find_all_objects(Chef::Config.role_path).size == 0
+      if Dir.glob(File.join(Chef::Config.role_path, '*.rb')).size == 0
         ui.fatal("No roles were found in role_path: #{config[:role_path]}")
         ui.fatal("Ensure that your knife.rb has the correct path.")
         exit 1
@@ -65,9 +60,18 @@ module KnifeRoleSpaghetti
         :compound => "true"
       )
 
-      loader.find_all_objects(Chef::Config.role_path) do |role_file|
+      Dir.glob(File.join(Chef::Config.role_path, '*.{rb,json}')) do |role_file|
 
-        role = loader.load_from(role_file)
+        role = Chef::Role.new
+
+        if File.extname(role_file) == '.rb'
+          role.from_file(role_file)
+        elsif File.extname(role_file) == '.json'
+          js_file = Chef::JSONCompat.from_json(IO.read(role_file))
+          role = Chef::Role.json_create(js_file)
+        else
+          ui.error("This shouldn't happen, the file must be either rb or json")
+        end
 
         # OPTIMIZE: Handle environment run_lists
 
