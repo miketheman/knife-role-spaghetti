@@ -31,7 +31,7 @@ module KnifeRoleSpaghetti
 
       # OPTIMIZE: Maybe instead of a flag, infer the graph format from fileext?
 
-      # Parse the configuration options, provide defaults where needed      
+      # Parse the configuration options, provide defaults where needed
       if config[:graphformat]
         output_format = config[:graphformat].to_sym
       else
