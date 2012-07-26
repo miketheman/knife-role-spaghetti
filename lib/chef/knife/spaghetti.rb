@@ -87,12 +87,13 @@ module KnifeRoleSpaghetti
             g.node[:shape] = "box"
             g.node[:style] = "rounded"
             g.node[:color] = "red"
+            rli_node = g.add_nodes("#{rli.name}_role", :label => rli.name)
           else
             g.node[:shape] = "component"
             g.node[:color] = "blue"
+            rli_node = g.add_nodes(rli.name)
           end
 
-          rli_node = g.add_nodes(rli.name)
           g.add_edges(role_node, rli_node)
         end
 
