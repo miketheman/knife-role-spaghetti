@@ -46,7 +46,7 @@ module KnifeRoleSpaghetti
       end
 
       # If we can't find any roles, it's pointless to continue.
-      if Dir.glob(File.join(Chef::Config.role_path, '*.rb')).size == 0
+      if Dir.glob(File.join(config[:role_path], '*.rb')).size == 0
         ui.fatal("No roles were found in role_path: #{config[:role_path]}")
         ui.fatal("Ensure that your knife.rb has the correct path.")
         exit 1
