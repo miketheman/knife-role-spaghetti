@@ -37,6 +37,7 @@ module KnifeRoleSpaghetti
       else
         output_format = :png
       end
+      Chef::Log.debug("Output format is: #{output_format}")
 
       # Determine of a filename has been passed
       if @name_args.size >= 1
@@ -44,6 +45,7 @@ module KnifeRoleSpaghetti
       else
         filename = "role-spaghetti.#{output_format}"
       end
+      Chef::Log.debug("Output filename is: #{filename}")
 
       # If we can't find any roles, it's pointless to continue.
       if Dir.glob(File.join(config[:role_path], '*.rb')).size == 0
@@ -72,6 +74,7 @@ module KnifeRoleSpaghetti
         else
           ui.error("This shouldn't happen, the file must be either rb or json")
         end
+        Chef::Log.debug("Loaded role is: #{role}")
 
         # OPTIMIZE: Handle environment run_lists
 

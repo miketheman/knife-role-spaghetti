@@ -64,3 +64,13 @@ Scenario: Running with no filename, the format flag and no format, should fail
 Scenario: Running with no filename, the format flag and no format, should fail
   When I run `knife role spaghetti failfile.png -G`
   Then the exit status should be 1
+
+Scenario: Running with verbose flags provides better output
+  When I successfully run `knife role spaghetti verbose.png -VV`
+  Then the output should contain:
+  """
+  DEBUG: Output format is: png
+  DEBUG: Output filename is: verbose.png
+  DEBUG: Loaded role is: role[webserver]
+  A Role dependency graph has been written to verbose.png
+  """
