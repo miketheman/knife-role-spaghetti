@@ -6,7 +6,7 @@ Feature: Ensure that the Command Line Interface works as designed
 Background:
   Given a file named ".chef/knife.rb" with:
   """
-  role_path ["#{File.dirname(__FILE__)}/../roles"]
+  role_path "#{File.dirname(__FILE__)}/../roles"
   """
   And a file named "roles/webserver.rb" with:
   """

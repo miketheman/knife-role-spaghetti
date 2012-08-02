@@ -21,7 +21,7 @@ Scenario: Running against a knife.rb with undefined roles directory should fail
 Scenario: Running against a directory with multiple roles succeeds
   Given a file named ".chef/knife.rb" with:
   """
-  role_path ["#{File.dirname(__FILE__)}/../roles"]
+  role_path "#{File.dirname(__FILE__)}/../roles"
   """
   And a file named "roles/webserver.rb" with:
   """
@@ -57,7 +57,7 @@ Scenario: Running against a directory with multiple roles succeeds
 Scenario: Running against embedded roles succeeds
   Given a file named ".chef/knife.rb" with:
   """
-  role_path ["#{File.dirname(__FILE__)}/../roles"]
+  role_path "#{File.dirname(__FILE__)}/../roles"
   """
   And a file named "roles/webserver.rb" with:
   """
@@ -85,4 +85,41 @@ Scenario: Running against embedded roles succeeds
   )
   """
   When I successfully run `knife role spaghetti embedded.png`
+  Then the exit status should be 0
+
+Scenario: Running against only json role files succeeds.
+  Given a file named ".chef/knife.rb" with:
+  """
+  role_path "#{File.dirname(__FILE__)}/../roles"
+  """
+  And a file named "roles/webserver.json" with:
+  """
+  {
+    "name": "webserver",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+      "apache2": {
+        "listen_ports": [
+          "80",
+          "443"
+        ]
+      }
+    },
+    "description": "The base role for systems that serve HTTP traffic",
+    "run_list": [
+      "recipe[apache2]",
+      "recipe[apache2::mod_ssl]",
+      "role[monitor]"
+    ],
+    "env_run_lists" : {
+     },
+    "override_attributes": {
+      "apache2": {
+        "max_children": "50"
+      }
+    }
+  }
+  """
+  When I successfully run `knife role spaghetti webserver.png`
   Then the exit status should be 0

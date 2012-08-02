@@ -5,6 +5,7 @@ module KnifeRoleSpaghetti
 
     deps do
       require 'chef/role'
+      require 'chef/knife/core/object_loader'
       require 'graphviz'
     end
 
@@ -24,6 +25,10 @@ module KnifeRoleSpaghetti
       :description => "Specify to render the graph in the neato engine"
 
     # OPTIMIZE: Add an option to display cookbooks instead of recipes?
+
+    def loader
+      @loader ||= Chef::Knife::Core::ObjectLoader.new(Chef::Role, ui)
+    end
 
     def run
 
@@ -47,8 +52,10 @@ module KnifeRoleSpaghetti
       end
       Chef::Log.debug("Output filename is: #{filename}")
 
+      loaded_roles = loader.find_all_objects(config[:role_path])
+
       # If we can't find any roles, it's pointless to continue.
-      if Dir.glob(File.join(config[:role_path], '*.rb')).size == 0
+      if loaded_roles.size == 0
         ui.fatal("No roles were found in role_path: #{config[:role_path]}")
         ui.fatal("Ensure that your knife.rb has the correct path.")
         exit 1
@@ -62,18 +69,13 @@ module KnifeRoleSpaghetti
         :compound => "true"
       )
 
-      Dir.glob(File.join(Chef::Config.role_path, '*.{rb,json}')) do |role_file|
+      loaded_roles.each do |role_file|
+        # Create an absolute path, since some file references include relative paths
+        abspath = File.absolute_path(File.join(config[:role_path], role_file))
 
-        role = Chef::Role.new
+        # The object_from_file method figures out the ruby/json logic
+        role = loader.object_from_file(abspath)
 
-        if File.extname(role_file) == '.rb'
-          role.from_file(role_file)
-        elsif File.extname(role_file) == '.json'
-          js_file = Chef::JSONCompat.from_json(IO.read(role_file))
-          role = Chef::Role.json_create(js_file)
-        else
-          ui.error("This shouldn't happen, the file must be either rb or json")
-        end
         Chef::Log.debug("Loaded role is: #{role}")
 
         # OPTIMIZE: Handle environment run_lists
