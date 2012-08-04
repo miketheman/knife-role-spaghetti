@@ -69,6 +69,13 @@ Running through the neato renderer (with the `-N` switch) produces this image:
 
 ## Changelog
 
+### v0.0.3
+* Fixed JSON roles loading #7 - Thanks @miah & @tezz!
+* Re-implemented the DRY proposed by @jtimberman in #1, with a different method
+* Prevent a role and recipe sharing the same name from colliding
+* Figured out correct testing requirements matrix for Travis
+* Added some more verbose logging options
+
 ### v0.0.2
 * Updated CLI banner to reflect that filename is not required, renamed for clarity
 * Improved handling cases where a role contains recipes named the same as the role
