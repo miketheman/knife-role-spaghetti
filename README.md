@@ -6,6 +6,8 @@ Knife plugin for [Chef][chef] to draw dependency graphs for roles that have beco
 
 #### Requirements
 
+Ruby 1.9.2 and higher.
+
 This plugin requires on [Graphviz][graphviz], and should be installed prior to
 installing the plugin.
 

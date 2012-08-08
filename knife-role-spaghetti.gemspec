@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'chef', chef_version
   gem.add_dependency 'ruby-graphviz'
+  gem.required_ruby_version = '>= 1.9.2'
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'aruba'
