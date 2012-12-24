@@ -4,3 +4,7 @@ rvm:
   - 1.9.3
 env:
   - CHEF_VERSION=10.12.0
+  - CHEF_VERSION=10.14.4
+  - CHEF_VERSION=10.16.2
+allow_failures:
+  env: - CHEF_VERSION=10.18.0.rc.1
