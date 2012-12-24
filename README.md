@@ -74,6 +74,12 @@ Running through the neato renderer (with the `-N` switch) produces this image:
 
 ## Changelog
 
+### v0.0.4
+* Allows for better Chef version dependency management, thanks @patcon!
+* Better Travis testing: more Chef versions, better timeout handling
+* Locked down a bunch of gem dependencies
+* Updated minimum required ruby to 1.9.2
+
 ### v0.0.3
 * Fixed JSON roles loading #7 - Thanks @miah & @tezz!
 * Re-implemented the DRY proposed by @jtimberman in #1, with a different method
