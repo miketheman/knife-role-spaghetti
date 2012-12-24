@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-chef_version = ENV.key?('CHEF_VERSION') ? "= #{ENV['CHEF_VERSION']}" : ['~> 10.12']
+chef_version = ENV.key?('CHEF_VERSION') ? "= #{ENV['CHEF_VERSION']}" : ['>= 10.12.0']
 require File.expand_path('../lib/knife-role-spaghetti', __FILE__)
 
 Gem::Specification.new do |gem|
