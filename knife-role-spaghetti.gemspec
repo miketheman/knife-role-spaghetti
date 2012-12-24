@@ -15,14 +15,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'chef', chef_version
-  gem.add_dependency 'ruby-graphviz'
+  gem.add_dependency 'ruby-graphviz', '~> 1'
   gem.required_ruby_version = '>= 1.9.2'
 
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'aruba'
-  gem.add_development_dependency 'aruba-doubles'
-  gem.add_development_dependency 'tailor' # https://github.com/turboladen/tailor
-  gem.add_development_dependency 'travis-lint'
+  gem.add_development_dependency 'rake', '~> 10'
+  gem.add_development_dependency 'aruba', '~> 0.5'
+  gem.add_development_dependency 'aruba-doubles', '~> 1.2'
+  gem.add_development_dependency 'tailor', '~> 1.1'
+  gem.add_development_dependency 'travis-lint', '~> 1'
 
   gem.authors       = ["Mike Fiedler"]
   gem.email         = ["miketheman@gmail.com"]
