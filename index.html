@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>knife-role-spaghetti by miketheman</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/miketheman/knife-role-spaghetti">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>knife-role-spaghetti</h1>
+            <h2>Knife plugin for Chef to draw dependency graphs for roles. Cut through the spaghetti with a knife.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/miketheman/knife-role-spaghetti/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/miketheman/knife-role-spaghetti/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>knife-role-spaghetti</h1>
+
+<p><a href="http://travis-ci.org/miketheman/knife-role-spaghetti"><img src="https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master" alt="Build Status"></a>
+<a href="https://gemnasium.com/miketheman/knife-role-spaghetti"><img src="https://gemnasium.com/miketheman/knife-role-spaghetti.png" alt="Dependency Status"></a>
+<a href="https://codeclimate.com/github/miketheman/knife-role-spaghetti"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
+
+<p>Knife plugin for <a href="http://www.opscode.com/chef/">Chef</a> to draw dependency graphs for roles that have become spaghetti.</p>
+
+<h2>Installation</h2>
+
+<h4>Requirements</h4>
+
+<p>Ruby 1.9.2 and higher.</p>
+
+<p>This plugin requires on <a href="http://www.graphviz.org/">Graphviz</a>, and should be installed prior to
+installing the plugin.</p>
+
+<p>Graphviz may be obtained through a variety of methods. On OSX an easy method is
+via <a href="http://mxcl.github.com/homebrew/">Homebrew</a>:</p>
+
+<pre><code>$ brew install graphviz
+</code></pre>
+
+<h3>Gem install, via RubyGems:</h3>
+
+<pre><code>$ gem install knife-role-spaghetti
+</code></pre>
+
+<h2>Usage</h2>
+
+<p><strong>NOTE:</strong> Ensure that your <code>knife.rb</code> has the <code>role_path</code> setting configured.</p>
+
+<p>Since this is a <a href="http://wiki.opscode.com/display/chef/Knife">Knife</a> plugin, execution should be performed in your Chef repository.</p>
+
+<p>Execute:</p>
+
+<pre><code>$ knife role spaghetti
+</code></pre>
+
+<p>with no arguments should result in a new file named <code>role-spaghetti.png</code> in your
+repo root.</p>
+
+<pre><code>$ knife role spaghetti "/tmp/someotherfilename.png"
+</code></pre>
+
+<p>will place the file in the specified location.</p>
+
+<p>Execute <code>knife role spaghetti -h</code> for more options.</p>
+
+<h2>Examples</h2>
+
+<p>From a <a href="https://gist.github.com/858903">sample role</a>, courtesy of <a href="https://github.com/jtimberman" class="user-mention">@jtimberman</a>, along with one from the <a href="http://wiki.opscode.com/display/chef/Roles#Roles-TheRubyDSL">Opscode Wiki</a>, plus one more cyclic role model, produces this image:</p>
+
+<p><img src="http://f.cl.ly/items/0w3r0k1I291g3x230m3y/rsz_sample-roles.png" alt="Sample Roles" title="Sample Roles"></p>
+
+<p>(full resolution <a href="http://cl.ly/image/1C0Q3p0y093s">here</a>)</p>
+
+<p>Running through the neato renderer (with the <code>-N</code> switch) produces this image:</p>
+
+<p><img src="http://f.cl.ly/items/370L0z3L2U0l341Q0f2k/rsz_sample-roles-neato.png" alt="Sample Roles Neato" title="Sample Roles - neato"></p>
+
+<p>(full resolution <a href="http://cl.ly/image/2s340G0x3d33">here</a></p>
+
+<h2>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Test your changes (<code>rake test</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol><h2>Changelog</h2>
+
+<h3>v0.0.4</h3>
+
+<ul>
+<li>Allows for better Chef version dependency management, thanks <a href="https://github.com/patcon" class="user-mention">@patcon</a>!</li>
+<li>Better Travis testing: more Chef versions, better timeout handling</li>
+<li>Locked down a bunch of gem dependencies</li>
+<li>Updated minimum required ruby to 1.9.2</li>
+</ul><h3>v0.0.3</h3>
+
+<ul>
+<li>Fixed JSON roles loading #7 - Thanks <a href="https://github.com/miah" class="user-mention">@miah</a> &amp; @tezz!</li>
+<li>Re-implemented the DRY proposed by <a href="https://github.com/jtimberman" class="user-mention">@jtimberman</a> in #1, with a different method</li>
+<li>Prevent a role and recipe sharing the same name from colliding</li>
+<li>Figured out correct testing requirements matrix for Travis</li>
+<li>Added some more verbose logging options</li>
+</ul><h3>v0.0.2</h3>
+
+<ul>
+<li>Updated CLI banner to reflect that filename is not required, renamed for clarity</li>
+<li>Improved handling cases where a role contains recipes named the same as the role</li>
+<li>Added handling for roles in JSON format</li>
+</ul><h3>v0.0.1</h3>
+
+<ul>
+<li>Initial commit</li>
+</ul><h2>License</h2>
+
+<p>Author:: Mike Fiedler (<a href="mailto:miketheman@gmail.com">miketheman@gmail.com</a>)
+Copyright:: Copyright (c) 2012 Mike Fiedler
+License:: Apache License, Version 2.0</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/miketheman">miketheman</a> can be found on <a href="https://github.com/miketheman/knife-role-spaghetti">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
