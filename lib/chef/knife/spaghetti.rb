@@ -75,7 +75,7 @@ module KnifeRoleSpaghetti
 
         file_extension = File.extname(role_file)
         if file_extension != ".json" then
-          ui.info("Skipping '#{abspath}' as it doesn't have a '.json' extension")
+          ui.info("Skipping '#{abspath}': not a '.json' file")
           next
         end
 
