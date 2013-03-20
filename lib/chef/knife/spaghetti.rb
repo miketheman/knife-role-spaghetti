@@ -73,6 +73,12 @@ module KnifeRoleSpaghetti
         # Create an absolute path, since some file references include relative paths
         abspath = File.absolute_path(File.join(config[:role_path], role_file))
 
+        file_extension = File.extname(role_file)
+        if file_extension != ".json" then
+          ui.info("Skipping '#{abspath}' as it doesn't have a '.json' extension")
+          next
+        end
+
         # The object_from_file method figures out the ruby/json logic
         role = loader.object_from_file(abspath)
 
