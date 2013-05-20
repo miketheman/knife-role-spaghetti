@@ -1,6 +1,7 @@
 # knife-role-spaghetti
 [![Build Status](https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master)](http://travis-ci.org/miketheman/knife-role-spaghetti)
 [![Dependency Status](https://gemnasium.com/miketheman/knife-role-spaghetti.png)](https://gemnasium.com/miketheman/knife-role-spaghetti)
+[![BuildHeroes](https://www.buildheroes.com/projects/knife-role-spaghetti.png)](https://www.buildheroes.com/projects/knife-role-spaghetti)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/miketheman/knife-role-spaghetti)
 
 Knife plugin for [Chef][chef] to draw dependency graphs for roles that have become spaghetti.
@@ -97,7 +98,7 @@ Running through the neato renderer (with the `-N` switch) produces this image:
 
 ## License
 
-Author:: Mike Fiedler (<miketheman@gmail.com>)
+Author:: [Mike Fiedler][miketheman] (<miketheman@gmail.com>) [![endorse](http://api.coderwall.com/miketheman/endorsecount.png)](http://coderwall.com/miketheman)
 Copyright:: Copyright (c) 2012 Mike Fiedler
 License:: Apache License, Version 2.0
 
