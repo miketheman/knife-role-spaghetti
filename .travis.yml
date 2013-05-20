@@ -10,3 +10,5 @@ env:
 matrix:
   allow_failures:
     - env: CHEF_VERSION=10.18.0.rc.1
+notifications:
+  webhooks: https://www.buildheroes.com/api/projects/ecafb9f9b6badadc0d629c2cffaa4cd732ee47af/builds
