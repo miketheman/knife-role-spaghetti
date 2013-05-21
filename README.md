@@ -1,8 +1,9 @@
 # knife-role-spaghetti
-[![Build Status](https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master)](http://travis-ci.org/miketheman/knife-role-spaghetti)
+[![Gem Version](https://badge.fury.io/rb/knife-role-spaghetti.png)](http://badge.fury.io/rb/knife-role-spaghetti)
 [![Dependency Status](https://gemnasium.com/miketheman/knife-role-spaghetti.png)](https://gemnasium.com/miketheman/knife-role-spaghetti)
+[![Build Status](https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master)](http://travis-ci.org/miketheman/knife-role-spaghetti)
 [![BuildHeroes](https://www.buildheroes.com/projects/knife-role-spaghetti.png)](https://www.buildheroes.com/projects/knife-role-spaghetti)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/miketheman/knife-role-spaghetti)
+[![Code Climate](https://codeclimate.com/github/miketheman/knife-community.png)](https://codeclimate.com/github/miketheman/knife-community)
 
 Knife plugin for [Chef][chef] to draw dependency graphs for roles that have become spaghetti.
 
