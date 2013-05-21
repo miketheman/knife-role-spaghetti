@@ -52,12 +52,34 @@ module KnifeRoleSpaghetti
       end
       Chef::Log.debug("Output filename is: #{filename}")
 
-      loaded_roles = loader.find_all_objects(config[:role_path])
+      if Dir.exist?(config[:role_path])
+        role_path = config[:role_path]
+      else
+        role_path = "/tmp/chef-roles"
+        if Dir.exist?(role_path)
+          Dir.open(role_path).each do |d|
+            next if d == "." or d == ".."
+            File.unlink(File.join(role_path + "/" + d))
+          end
+        else
+          Dir.mkdir(role_path)
+        end
+        ui.msg("Retrieving roles from #{config[:chef_server_url]}...")
+        Chef::Role.list.each do |name|
+          name = name.first
+          role = Chef::Role.load(name)
+          File.open(File.join(role_path + "/" + name + ".json"), "w") do |f|
+            f << Chef::JSONCompat.to_json_pretty(role)
+          end
+        end
+      end
+      loaded_roles = loader.find_all_objects(role_path)
 
       # If we can't find any roles, it's pointless to continue.
       if loaded_roles.size == 0
-        ui.fatal("No roles were found in role_path: #{config[:role_path]}")
-        ui.fatal("Ensure that your knife.rb has the correct path.")
+        ui.fatal("No roles were found in role_path: #{role_path}.")
+        ui.fatal("Ensure that your knife.rb has the correct path")
+        ui.fatal("or that #{config[:chef_server_url]} is reachable.")
         exit 1
       end
 
@@ -71,7 +93,7 @@ module KnifeRoleSpaghetti
 
       loaded_roles.each do |role_file|
         # Create an absolute path, since some file references include relative paths
-        abspath = File.absolute_path(File.join(config[:role_path], role_file))
+        abspath = File.absolute_path(File.join(role_path, role_file))
 
         # The object_from_file method figures out the ruby/json logic
         role = loader.object_from_file(abspath)
@@ -113,6 +135,10 @@ module KnifeRoleSpaghetti
       end
 
       ui.msg("A Role dependency graph has been written to #{filename}")
+      unless Dir.exist?(config[:role_path])
+        ui.msg("The roles downloaded from the Chef server are found under")
+        ui.msg("#{role_path}. They will be deleted at the next run.")
+      end
     end #run end
   end #class end
 end #module end
