@@ -46,18 +46,22 @@
 
 
       <section id="main_content">
-        <h1>knife-role-spaghetti</h1>
+        <h1>
+<a name="knife-role-spaghetti" class="anchor" href="#knife-role-spaghetti"><span class="octicon octicon-link"></span></a>knife-role-spaghetti</h1>
 
-<p><a href="http://travis-ci.org/miketheman/knife-role-spaghetti"><img src="https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master" alt="Build Status"></a>
+<p><a href="http://badge.fury.io/rb/knife-role-spaghetti"><img src="https://badge.fury.io/rb/knife-role-spaghetti.png" alt="Gem Version"></a>
 <a href="https://gemnasium.com/miketheman/knife-role-spaghetti"><img src="https://gemnasium.com/miketheman/knife-role-spaghetti.png" alt="Dependency Status"></a>
+<a href="http://travis-ci.org/miketheman/knife-role-spaghetti"><img src="https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master" alt="Build Status"></a>
 <a href="https://www.buildheroes.com/projects/knife-role-spaghetti"><img src="https://www.buildheroes.com/projects/knife-role-spaghetti.png" alt="BuildHeroes"></a>
-<a href="https://codeclimate.com/github/miketheman/knife-role-spaghetti"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
+<a href="https://codeclimate.com/github/miketheman/knife-community"><img src="https://codeclimate.com/github/miketheman/knife-community.png" alt="Code Climate"></a></p>
 
 <p>Knife plugin for <a href="http://www.opscode.com/chef/">Chef</a> to draw dependency graphs for roles that have become spaghetti.</p>
 
-<h2>Installation</h2>
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h4>Requirements</h4>
+<h4>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h4>
 
 <p>Ruby 1.9.2 and higher.</p>
 
@@ -70,12 +74,14 @@ via <a href="http://mxcl.github.com/homebrew/">Homebrew</a>:</p>
 <pre><code>$ brew install graphviz
 </code></pre>
 
-<h3>Gem install, via RubyGems:</h3>
+<h3>
+<a name="gem-install-via-rubygems" class="anchor" href="#gem-install-via-rubygems"><span class="octicon octicon-link"></span></a>Gem install, via RubyGems:</h3>
 
 <pre><code>$ gem install knife-role-spaghetti
 </code></pre>
 
-<h2>Usage</h2>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p><strong>NOTE:</strong> Ensure that your <code>knife.rb</code> has the <code>role_path</code> setting configured.</p>
 
@@ -96,7 +102,8 @@ repo root.</p>
 
 <p>Execute <code>knife role spaghetti -h</code> for more options.</p>
 
-<h2>Examples</h2>
+<h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
 
 <p>From a <a href="https://gist.github.com/858903">sample role</a>, courtesy of <a href="https://github.com/jtimberman" class="user-mention">@jtimberman</a>, along with one from the <a href="http://wiki.opscode.com/display/chef/Roles#Roles-TheRubyDSL">Opscode Wiki</a>, plus one more cyclic role model, produces this image:</p>
 
@@ -108,48 +115,13 @@ repo root.</p>
 
 <p><img src="http://f.cl.ly/items/370L0z3L2U0l341Q0f2k/rsz_sample-roles-neato.png" alt="Sample Roles Neato" title="Sample Roles - neato"></p>
 
-<p>(full resolution <a href="http://cl.ly/image/2s340G0x3d33">here</a></p>
+<p>(full resolution <a href="http://cl.ly/image/2s340G0x3d33">here</a>)</p>
 
-<h2>Contributing</h2>
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
-<ol>
-<li>Fork it</li>
-<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
-<li>Test your changes (<code>rake test</code>)</li>
-<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
-<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
-<li>Create new Pull Request</li>
-</ol><h2>Changelog</h2>
-
-<h3>v0.0.4</h3>
-
-<ul>
-<li>Allows for better Chef version dependency management, thanks <a href="https://github.com/patcon" class="user-mention">@patcon</a>!</li>
-<li>Better Travis testing: more Chef versions, better timeout handling</li>
-<li>Locked down a bunch of gem dependencies</li>
-<li>Updated minimum required ruby to 1.9.2</li>
-</ul><h3>v0.0.3</h3>
-
-<ul>
-<li>Fixed JSON roles loading #7 - Thanks <a href="https://github.com/miah" class="user-mention">@miah</a> &amp; @tezz!</li>
-<li>Re-implemented the DRY proposed by <a href="https://github.com/jtimberman" class="user-mention">@jtimberman</a> in #1, with a different method</li>
-<li>Prevent a role and recipe sharing the same name from colliding</li>
-<li>Figured out correct testing requirements matrix for Travis</li>
-<li>Added some more verbose logging options</li>
-</ul><h3>v0.0.2</h3>
-
-<ul>
-<li>Updated CLI banner to reflect that filename is not required, renamed for clarity</li>
-<li>Improved handling cases where a role contains recipes named the same as the role</li>
-<li>Added handling for roles in JSON format</li>
-</ul><h3>v0.0.1</h3>
-
-<ul>
-<li>Initial commit</li>
-</ul><h2>License</h2>
-
-<p>Author:: [Mike Fiedler]<a href="miketheman@gmail.com">miketheman</a> <a href="http://coderwall.com/miketheman"><img src="http://api.coderwall.com/miketheman/endorsecount.png" alt="endorse"></a>
-Copyright:: Copyright (c) 2012 Mike Fiedler
+<p>Author:: <a href="https://github.com/miketheman">Mike Fiedler</a> (<a href="mailto:miketheman@gmail.com">miketheman@gmail.com</a>) <a href="http://coderwall.com/miketheman"><img src="http://api.coderwall.com/miketheman/endorsecount.png" alt="endorse"></a>
+Copyright:: Copyright (c) 2012-2013 Mike Fiedler
 License:: Apache License, Version 2.0</p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
