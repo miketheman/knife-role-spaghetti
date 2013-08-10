@@ -3,6 +3,8 @@
 .bundle
 .chef
 .config
+.ruby-gemset
+.ruby-version
 .rvmrc
 .DS_Store
 coverage
