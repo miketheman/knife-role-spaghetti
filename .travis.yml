@@ -2,14 +2,13 @@ language: ruby
 rvm:
   - 1.9.2
   - 1.9.3
+  - 2.0.0
 bundler_args: --without=localdev
 env:
   - CHEF_VERSION=10.12.0
-  - CHEF_VERSION=10.14.4
-  - CHEF_VERSION=10.16.4
-  - CHEF_VERSION=10.18.0.rc.1
+  - CHEF_VERSION=10.26.0
 matrix:
   allow_failures:
-    - env: CHEF_VERSION=10.18.0.rc.1
+    - rvm: 2.0.0
 notifications:
   webhooks: https://www.buildheroes.com/api/projects/ecafb9f9b6badadc0d629c2cffaa4cd732ee47af/builds
