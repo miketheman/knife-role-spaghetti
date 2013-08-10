@@ -55,52 +55,22 @@ Running through the neato renderer (with the `-N` switch) produces this image:
 
 ![Sample Roles Neato][sample roles neato]
 
-(full resolution [here](http://cl.ly/image/2s340G0x3d33)
-
-## Contributing
-1. Fork it
-1. Create your feature branch (`git checkout -b my-new-feature`)
-1. Test your changes (`rake test`)
-1. Commit your changes (`git commit -am 'Added some feature'`)
-1. Push to the branch (`git push origin my-new-feature`)
-1. Create new Pull Request
+(full resolution [here](http://cl.ly/image/2s340G0x3d33))
 
 [chef]: http://www.opscode.com/chef/
 [graphviz]: http://www.graphviz.org/
 [homebrew]: http://mxcl.github.com/homebrew/
 [knife]: http://wiki.opscode.com/display/chef/Knife
+[miketheman]: https://github.com/miketheman
 [sample role jt]: https://gist.github.com/858903
 [sample role wiki]: http://wiki.opscode.com/display/chef/Roles#Roles-TheRubyDSL
 [sample roles]: http://f.cl.ly/items/0w3r0k1I291g3x230m3y/rsz_sample-roles.png "Sample Roles"
 [sample roles neato]: http://f.cl.ly/items/370L0z3L2U0l341Q0f2k/rsz_sample-roles-neato.png "Sample Roles - neato"
 
-## Changelog
-
-### v0.0.4
-* Allows for better Chef version dependency management, thanks @patcon!
-* Better Travis testing: more Chef versions, better timeout handling
-* Locked down a bunch of gem dependencies
-* Updated minimum required ruby to 1.9.2
-
-### v0.0.3
-* Fixed JSON roles loading #7 - Thanks @miah & @tezz!
-* Re-implemented the DRY proposed by @jtimberman in #1, with a different method
-* Prevent a role and recipe sharing the same name from colliding
-* Figured out correct testing requirements matrix for Travis
-* Added some more verbose logging options
-
-### v0.0.2
-* Updated CLI banner to reflect that filename is not required, renamed for clarity
-* Improved handling cases where a role contains recipes named the same as the role
-* Added handling for roles in JSON format
-
-### v0.0.1
-* Initial commit
-
 ## License
 
 Author:: [Mike Fiedler][miketheman] (<miketheman@gmail.com>) [![endorse](http://api.coderwall.com/miketheman/endorsecount.png)](http://coderwall.com/miketheman)
-Copyright:: Copyright (c) 2012 Mike Fiedler
+Copyright:: Copyright (c) 2012-2013 Mike Fiedler
 License:: Apache License, Version 2.0
 
 Licensed under the Apache License, Version 2.0 (the "License");
