@@ -1,6 +1,9 @@
 require 'chef/knife'
 
 module KnifeRoleSpaghetti
+  # RoleSpaghetti is a Chef::Knife plugin
+  # It creates a new class, which is visibile when running the `knife` cli tool
+  # and provides a way to output a visualized dependency graph of Chef Roles.
   class RoleSpaghetti < Chef::Knife
 
     deps do

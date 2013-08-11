@@ -1,0 +1,2 @@
+--no-style
+--abc-max 46 # value on 2013-08-11. OPTIMIZE: refactor to reduce this number
