@@ -1,7 +1,9 @@
 #!/usr/bin/env rake
+require 'bundler/setup'
 require 'bundler/gem_tasks'
 
 task :test => [:tailor, :features]
+require 'appraisal'
 
 task :default => :test
 

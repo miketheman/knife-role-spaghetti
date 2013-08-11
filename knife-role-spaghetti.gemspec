@@ -1,5 +1,4 @@
 # -*- encoding: utf-8 -*-
-chef_version = ENV.key?('CHEF_VERSION') ? "= #{ENV['CHEF_VERSION']}" : ['~> 10.12']
 require File.expand_path('../lib/knife-role-spaghetti', __FILE__)
 
 Gem::Specification.new do |gem|
@@ -14,14 +13,15 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'chef', chef_version
+  gem.add_dependency 'chef', '>= 10.12'
   gem.add_dependency 'ruby-graphviz', '~> 1.0.9'
   gem.required_ruby_version = '>= 1.9.2'
 
   gem.add_development_dependency 'rake', '~> 10.0'
-  gem.add_development_dependency 'cane', '~> 2.5'
+  gem.add_development_dependency 'appraisal', '~> 0.5.2'
   gem.add_development_dependency 'aruba', '~> 0.5'
   gem.add_development_dependency 'aruba-doubles', '~> 1.2'
+  gem.add_development_dependency 'cane', '~> 2.5'
   gem.add_development_dependency 'tailor', '~> 1.2'
 
   gem.authors       = ["Mike Fiedler"]

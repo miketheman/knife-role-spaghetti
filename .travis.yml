@@ -4,9 +4,9 @@ rvm:
   - 1.9.3
   - 2.0.0
 bundler_args: --without=localdev
-env:
-  - CHEF_VERSION=10.12.0
-  - CHEF_VERSION=10.26.0
+gemfile:
+  - gemfiles/chef_10_latest.gemfile
+  - gemfiles/chef_11_latest.gemfile
 matrix:
   allow_failures:
     - rvm: 2.0.0

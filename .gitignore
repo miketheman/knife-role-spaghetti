@@ -3,12 +3,13 @@
 .bundle
 .chef
 .config
+.DS_Store
 .ruby-gemset
 .ruby-version
 .rvmrc
-.DS_Store
 coverage
 Gemfile.lock
+gemfiles/*.lock
 InstalledFiles
 lib/bundler/man
 pkg
