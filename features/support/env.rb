@@ -4,6 +4,10 @@ require 'aruba-doubles/cucumber'
 
 Before do
   @aruba_timeout_seconds = 5
+
+  # Set the env var PWD to aruba's working directory, instead of inheriting
+  # the main process's PWD. See CHEF-3663 for why this changed in Chef 11.
+  ENV['PWD'] = File.expand_path current_dir
 end
 
 After do |s| 
