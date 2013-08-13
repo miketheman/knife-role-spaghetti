@@ -1,3 +1,3 @@
 module KnifeRoleSpaghetti
-  VERSION = "0.0.5.dev"
+  VERSION = "0.0.5"
 end

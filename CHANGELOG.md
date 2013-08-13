@@ -1,8 +1,10 @@
 Changelog
 =========
 
-# 0.0.5 / Unreleased
+# 0.0.5 / 2013-08-13
 * Cleaned up documentation layouts - Changelog, Contributing, Readme.
+* Updated dependencies, moved some out of gemspec to Gemfile
+* Using new dependency testing method, removes constraint on Chef version 10
 
 # 0.0.4 / 2012-12-24
 * Allows for better Chef version dependency management, thanks @patcon!
