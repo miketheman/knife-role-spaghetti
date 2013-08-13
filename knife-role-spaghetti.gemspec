@@ -7,7 +7,8 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Cut through the Role spaghetti with a Knife, Chef.}
   gem.description   = %q{This knife plugin extends the `knife role` command.}
   gem.version       = KnifeRoleSpaghetti::VERSION
-  
+  gem.license       = "Apache License 2.0"
+
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
