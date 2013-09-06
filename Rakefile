@@ -2,7 +2,11 @@
 require 'bundler/setup'
 require 'bundler/gem_tasks'
 
-require 'appraisal'
+begin
+  require 'appraisal'
+rescue LoadError
+  puts 'Unable to load appraisal - testing against only latest version of the dependency.'
+end
 
 task :test => [:tailor, :features, :cane]
 

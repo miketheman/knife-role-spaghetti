@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.9.2'
 
   gem.add_development_dependency 'rake', '~> 10.0'
-  gem.add_development_dependency 'appraisal', '~> 0.5.2'
   gem.add_development_dependency 'aruba', '~> 0.5'
   gem.add_development_dependency 'aruba-doubles', '~> 1.2'
   gem.add_development_dependency 'cane', '~> 2.5'
