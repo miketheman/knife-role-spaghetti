@@ -5,7 +5,7 @@ require 'bundler/gem_tasks'
 begin
   require 'appraisal'
 rescue LoadError
-  puts 'Unable to load appraisal - testing against only latest version of the dependency.'
+  puts 'Unable to load appraisal gem - will test against only latest version of the dependency.' unless ENV['CI']
 end
 
 task :test => [:tailor, :features, :cane]
