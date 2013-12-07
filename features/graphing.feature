@@ -12,11 +12,12 @@ Scenario: Running against a knife.rb with undefined roles directory should fail
   When I run `knife role spaghetti`
   Then the output should contain exactly:
   """
-  FATAL: No roles were found in role_path: /var/chef/roles
-  FATAL: Ensure that your knife.rb has the correct path.
-  
+  Retrieving roles from http://localhost:4000...
+  Check your configuration file and ensure that your private key is readable
+  ERROR: Your private key could not be loaded from /etc/chef/client.pem
+
   """
-  And the exit status should be 1
+  And the exit status should be 100
 
 Scenario: Running against a directory with multiple roles succeeds
   Given a file named ".chef/knife.rb" with:
