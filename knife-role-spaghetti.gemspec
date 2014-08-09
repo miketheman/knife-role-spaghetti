@@ -4,13 +4,13 @@ require File.expand_path('../lib/knife-role-spaghetti', __FILE__)
 Gem::Specification.new do |gem|
 
   gem.name          = 'knife-role-spaghetti'
-  gem.summary       = %q{Cut through the Role spaghetti with a Knife, Chef.}
-  gem.description   = %q{This knife plugin extends the `knife role` command.}
+  gem.summary       = 'Cut through the Role spaghetti with a Knife, Chef.'
+  gem.description   = 'This knife plugin extends the `knife role` command.'
   gem.version       = KnifeRoleSpaghetti::VERSION
-  gem.license       = "Apache License 2.0"
+  gem.license       = 'Apache License 2.0'
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.files         = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
+  gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
@@ -23,9 +23,10 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'aruba-doubles', '~> 1.2'
   gem.add_development_dependency 'cane', '~> 2.5'
   gem.add_development_dependency 'tailor', '~> 1.2'
+  gem.add_development_dependency 'rubocop', '~> 0.24.1'
 
-  gem.authors       = ["Mike Fiedler"]
-  gem.email         = ["miketheman@gmail.com"]
-  gem.homepage      = "http://www.miketheman.net"
+  gem.authors       = ['Mike Fiedler']
+  gem.email         = ['miketheman@gmail.com']
+  gem.homepage      = 'http://www.miketheman.net'
 
 end

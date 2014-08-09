@@ -35,7 +35,10 @@ Cane::RakeTask.new do |t|
 end
 
 # File lib/tasks/notes.rake
-desc "Find notes in code"
+desc 'Find notes in code'
 task :notes do
   puts `grep --exclude=Rakefile -r 'OPTIMIZE:\\|FIXME:\\|TODO:' .`
 end
+
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new(:style)

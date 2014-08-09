@@ -5,27 +5,26 @@ module KnifeRoleSpaghetti
   # It creates a new class, which is visibile when running the `knife` cli tool
   # and provides a way to output a visualized dependency graph of Chef Roles.
   class RoleSpaghetti < Chef::Knife
-
     deps do
       require 'chef/role'
       require 'chef/knife/core/object_loader'
       require 'graphviz'
     end
 
-    banner "knife role spaghetti [ OUTFILE.PNG -G FORMAT [-N] ]"
+    banner 'knife role spaghetti [ OUTFILE.PNG -G FORMAT [-N] ]'
 
     option :graphformat,
-      :short => "-G FORMAT",
-      :long => "--graph-format FORMAT",
-      :default => "png",
-      :boolean => false,
-      :description => "Format for dependency graph output [png|dot]"
+           short: '-G FORMAT',
+           long: '--graph-format FORMAT',
+           default: 'png',
+           boolean: false,
+           description: 'Format for dependency graph output [png|dot]'
 
     option :neatograph,
-      :short => "-N",
-      :long => "--neato-graph",
-      :boolean => true,
-      :description => "Specify to render the graph in the neato engine"
+           short: '-N',
+           long: '--neato-graph',
+           boolean: true,
+           description: 'Specify to render the graph in the neato engine'
 
     # OPTIMIZE: Add an option to display cookbooks instead of recipes?
 
@@ -34,7 +33,6 @@ module KnifeRoleSpaghetti
     end
 
     def run
-
       self.config = Chef::Config.merge!(config)
 
       # OPTIMIZE: Maybe instead of a flag, infer the graph format from fileext?
@@ -60,16 +58,16 @@ module KnifeRoleSpaghetti
       # If we can't find any roles, it's pointless to continue.
       if loaded_roles.size == 0
         ui.fatal("No roles were found in role_path: #{config[:role_path]}")
-        ui.fatal("Ensure that your knife.rb has the correct path.")
+        ui.fatal('Ensure that your knife.rb has the correct path.')
         exit 1
       end
 
-      g = GraphViz.new(:RoleDependencies, :type => :digraph,
-        :fontname => "Verdana", :fontsize => 20,
-        :label => "\n\n\nChef Role Dependencies\n",
-        :rankdir => "LR",
-        :overlap => "false",
-        :compound => "true"
+      g = GraphViz.new(:RoleDependencies, type: :digraph,
+                                          fontname: 'Verdana', fontsize: 20,
+                                          label: "\n\n\nChef Role Dependencies\n",
+                                          rankdir: 'LR',
+                                          overlap: 'false',
+                                          compound: 'true'
       )
 
       loaded_roles.each do |role_file|
@@ -83,22 +81,22 @@ module KnifeRoleSpaghetti
 
         # OPTIMIZE: Handle environment run_lists
 
-        g.node[:shape] = "box"
-        g.node[:style] = "rounded"
-        g.node[:color] = "red"
-        role_node = g.add_nodes("#{role.name}_role", :label => role.name)
+        g.node[:shape] = 'box'
+        g.node[:style] = 'rounded'
+        g.node[:color] = 'red'
+        role_node = g.add_nodes("#{role.name}_role", label: role.name)
 
         # This logic is to ensure that an embedded role doesn't change color
         role.run_list.each do |rli|
 
           if rli.role?
-            g.node[:shape] = "box"
-            g.node[:style] = "rounded"
-            g.node[:color] = "red"
-            rli_node = g.add_nodes("#{rli.name}_role", :label => rli.name)
+            g.node[:shape] = 'box'
+            g.node[:style] = 'rounded'
+            g.node[:color] = 'red'
+            rli_node = g.add_nodes("#{rli.name}_role", label: rli.name)
           else
-            g.node[:shape] = "component"
-            g.node[:color] = "blue"
+            g.node[:shape] = 'component'
+            g.node[:color] = 'blue'
             rli_node = g.add_nodes(rli.name)
           end
 
@@ -109,13 +107,13 @@ module KnifeRoleSpaghetti
 
       # Let's write out the graph to a file
       if config[:neatograph]
-        g.output(output_format => "#{filename}", :use => "neato")
+        g.output(output_format => "#{filename}", :use => 'neato')
       else
         # default to dot
         g.output(output_format => "#{filename}")
       end
 
       ui.msg("A Role dependency graph has been written to #{filename}")
-    end #run end
-  end #class end
-end #module end
+    end # run end
+  end # class end
+end # module end
