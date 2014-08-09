@@ -10,11 +10,11 @@ Background:
 Scenario: Running against a knife.rb with undefined roles directory should fail
   Given an empty file named ".chef/knife.rb"
   When I run `knife role spaghetti`
-  Then the output should contain exactly:
+  Then the output should match:
   """
-  FATAL: No roles were found in role_path: /var/chef/roles
+  FATAL: No roles were found in role_path: (.*)
   FATAL: Ensure that your knife.rb has the correct path.
-  
+
   """
   And the exit status should be 1
 
