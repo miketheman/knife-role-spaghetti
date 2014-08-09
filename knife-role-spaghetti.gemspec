@@ -15,8 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'chef', '>= 10.12'
-  gem.add_dependency 'ruby-graphviz', '~> 1.0.9'
-  gem.required_ruby_version = '>= 1.9.2'
+  gem.add_dependency 'ruby-graphviz', '~> 1.2.1'
+  gem.required_ruby_version = '>= 1.9.3'
 
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'aruba', '~> 0.5'
