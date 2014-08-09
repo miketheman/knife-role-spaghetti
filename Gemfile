@@ -10,5 +10,5 @@ group :localdev do
   gem 'guard-cane', '~> 0.1.2'
   gem 'guard-cucumber', '~> 1.4'
   gem 'guard-rspec', '~> 3.0'
-  gem 'travis-lint', '~> 1.7'
+  gem 'travis-lint', '~> 2.0'
 end
