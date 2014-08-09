@@ -1,9 +1,8 @@
 # knife-role-spaghetti
-[![Gem Version](https://badge.fury.io/rb/knife-role-spaghetti.png)](http://badge.fury.io/rb/knife-role-spaghetti)
-[![Dependency Status](https://gemnasium.com/miketheman/knife-role-spaghetti.png)](https://gemnasium.com/miketheman/knife-role-spaghetti)
-[![Build Status](https://secure.travis-ci.org/miketheman/knife-role-spaghetti.png?branch=master)](http://travis-ci.org/miketheman/knife-role-spaghetti)
-[![BuildHeroes](https://www.buildheroes.com/projects/knife-role-spaghetti.png)](https://www.buildheroes.com/projects/knife-role-spaghetti)
-[![Code Climate](https://codeclimate.com/github/miketheman/knife-role-spaghetti.png)](https://codeclimate.com/github/miketheman/knife-role-spaghetti)
+[![Gem Version](https://badge.fury.io/rb/knife-role-spaghetti.svg)](http://badge.fury.io/rb/knife-role-spaghetti)
+[![Dependency Status](https://gemnasium.com/miketheman/knife-role-spaghetti.svg)](https://gemnasium.com/miketheman/knife-role-spaghetti)
+[![Build Status](https://travis-ci.org/miketheman/knife-role-spaghetti.svg?branch=master)](https://travis-ci.org/miketheman/knife-role-spaghetti)
+[![Code Climate](https://codeclimate.com/github/miketheman/knife-role-spaghetti/badges/gpa.svg)](https://codeclimate.com/github/miketheman/knife-role-spaghetti)
 
 Knife plugin for [Chef][chef] to draw dependency graphs for roles that have become spaghetti.
 
@@ -11,7 +10,7 @@ Knife plugin for [Chef][chef] to draw dependency graphs for roles that have beco
 
 #### Requirements
 
-Ruby 1.9.2 and higher.
+Ruby 1.9.3 and higher.
 
 This plugin requires on [Graphviz][graphviz], and should be installed prior to
 installing the plugin.

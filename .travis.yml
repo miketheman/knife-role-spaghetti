@@ -9,5 +9,3 @@ gemfile:
 matrix:
   allow_failures:
     - rvm: 2.0.0
-notifications:
-  webhooks: https://www.buildheroes.com/api/projects/ecafb9f9b6badadc0d629c2cffaa4cd732ee47af/builds
