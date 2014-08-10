@@ -12,15 +12,10 @@ rescue LoadError
   puts 'Unable to load appraisal gem - will test against only latest version of the dependency.' unless ENV['CI']
 end
 
-task :test => [:tailor, :features, :cane]
+task test: [:style, :features, :cane]
 
 task :default => :test
 
-# https://github.com/turboladen/tailor
-require 'tailor/rake_task'
-Tailor::RakeTask.new do |task|
-  task.file_set('lib/**/*.rb', 'code')
-end
 
 require 'cucumber'
 require 'cucumber/rake/task'
