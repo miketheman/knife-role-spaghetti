@@ -1,0 +1,30 @@
+# Stylistic choices
+
+AllCops:
+  Include:
+    - '**/Appraisals'
+    - '**/Gemfile'
+    - '**/Guardfile'
+    - '**/Rakefile'
+
+# gemspec/Guardfile use some defaults
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
+
+Style/LineLength:
+  Max: 166
+
+# OPTIMIZE: refactor the `run` method to be smaller, testable methods
+# Offense count: 1
+# Configuration parameters: CountComments.
+Style/MethodLength:
+  Max: 54

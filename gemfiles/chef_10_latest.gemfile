@@ -10,6 +10,7 @@ group :localdev do
   gem "guard-cane", "~> 0.2.0"
   gem "guard-cucumber", "~> 1.4"
   gem "guard-rspec", "~> 4.3"
+  gem "guard-rubocop", "~> 1.1.0"
   gem "travis-lint", "~> 2.0"
 end
 

@@ -14,8 +14,7 @@ end
 
 task test: [:style, :features, :cane]
 
-task :default => :test
-
+task default: :test
 
 require 'cucumber'
 require 'cucumber/rake/task'
