@@ -26,6 +26,6 @@ Gem::Specification.new do |gem|
 
   gem.authors       = ['Mike Fiedler']
   gem.email         = ['miketheman@gmail.com']
-  gem.homepage      = 'http://www.miketheman.net'
+  gem.homepage      = 'https://github.com/miketheman/knife-role-spaghetti'
 
 end
