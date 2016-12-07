@@ -53,11 +53,11 @@ module KnifeRoleSpaghetti
       end
       Chef::Log.debug("Output filename is: #{filename}")
 
-      loaded_roles = loader.find_all_objects(config[:role_path])
+      loaded_roles = loader.find_all_objects(config[:role_path][0])
 
       # If we can't find any roles, it's pointless to continue.
       if loaded_roles.size == 0
-        ui.fatal("No roles were found in role_path: #{config[:role_path]}")
+        ui.fatal("No roles were found in role_path: #{config[:role_path][0]}")
         ui.fatal('Ensure that your knife.rb has the correct path.')
         exit 1
       end
@@ -72,7 +72,7 @@ module KnifeRoleSpaghetti
 
       loaded_roles.each do |role_file|
         # Create an absolute path, since some file references include relative paths
-        abspath = File.absolute_path(File.join(config[:role_path], role_file))
+        abspath = File.absolute_path(File.join(config[:role_path][0], role_file))
 
         # The object_from_file method figures out the ruby/json logic
         role = loader.object_from_file(abspath)
