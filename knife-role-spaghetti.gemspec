@@ -22,7 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'aruba', '~> 0.5'
   gem.add_development_dependency 'aruba-doubles', '~> 1.2'
   gem.add_development_dependency 'cane', '~> 2.5'
-  gem.add_development_dependency 'rubocop', '~> 0.24.1'
+  gem.add_development_dependency 'rubocop', '~> 0.49.0'
 
   gem.authors       = ['Mike Fiedler']
   gem.email         = ['miketheman@gmail.com']
