@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
+
 require File.expand_path('../lib/knife-role-spaghetti', __FILE__)
 
 Gem::Specification.new do |gem|
-
   gem.name          = 'knife-role-spaghetti'
   gem.summary       = 'Cut through the Role spaghetti with a Knife, Chef.'
   gem.description   = 'This knife plugin extends the `knife role` command.'
@@ -27,5 +27,4 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Mike Fiedler']
   gem.email         = ['miketheman@gmail.com']
   gem.homepage      = 'http://www.miketheman.net'
-
 end

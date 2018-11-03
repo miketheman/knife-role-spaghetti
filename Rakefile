@@ -12,7 +12,7 @@ rescue LoadError
   puts 'Unable to load appraisal gem - will test against only latest version of the dependency.' unless ENV['CI']
 end
 
-task test: [:style, :features, :cane]
+task test: %i[style features cane]
 
 task default: :test
 
